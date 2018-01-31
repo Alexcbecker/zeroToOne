@@ -11,32 +11,39 @@
 
     <div class="row">
       <div class="col-lg-12">
-        <a href="adicionar.html" class="btn btn-primary">Adicionar (C)</a>
-        <a href="consultar.html" class="btn btn-secondary">Consultar (R)</a>
-        <a href="alterar.html" class="btn btn-secondary">Alterar (U)</a>
-        <a href="excluir.html" class="btn btn-secondary">Excluir (D)</a>
+        <a href="index.html" class="btn btn-primary">Voltar</a>
       </div>
     </div>
 
     <section>
       <header>
         <legend>
-          Usuários cadastrados
+          Alterar usuário
         </legend>
       </header>
       
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Nome</th>
-            <th scope="col">Sobrenome</th>
-            <th scope="col">E-mail</th>
-            <th scope="col">Setor</th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table>
+      <fieldset>
+        <form>
+          <div class="form-group">
+            <label for="inputNome">Nome *</label>
+            <input type="text" class="form-control" id="inputNome">
+          </div>
+          <div class="form-group">
+            <label for="inputSobrenome">Sobrenome *</label>
+            <input type="text" class="form-control" id="inputSobrenome">
+          </div>
+          <div class="form-group">
+            <label for="inputEmail">E-mail *</label>
+            <input type="mail" class="form-control" id="inputEmail">
+          </div>
+          <div class="form-group">
+            <label for="inputSetor">Sobrenome *</label>
+            <input type="text" class="form-control" id="inputSetor">
+          </div>
+          <button type="submit" class="btn btn-success">Alterar</button>
+          <a href="index.html" class="btn btn-light">Cancelar</a>
+        </form>
+      </fieldset>
     </section>
   </div>
 
