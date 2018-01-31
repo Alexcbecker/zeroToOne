@@ -23,22 +23,22 @@
       </header>
       
       <fieldset>
-        <form>
+        <form onsubmit="return addUsuario(this);">
           <div class="form-group">
             <label for="inputNome">Nome *</label>
-            <input type="text" class="form-control" id="inputNome">
+            <input type="text" class="form-control" name="inputNome" id="inputNome" required="">
           </div>
           <div class="form-group">
             <label for="inputSobrenome">Sobrenome *</label>
-            <input type="text" class="form-control" id="inputSobrenome">
+            <input type="text" class="form-control" name="inputSobrenome" id="inputSobrenome" required="">
           </div>
           <div class="form-group">
             <label for="inputEmail">E-mail *</label>
-            <input type="mail" class="form-control" id="inputEmail">
+            <input type="mail" class="form-control" name="inputEmail" id="inputEmail" required="">
           </div>
           <div class="form-group">
-            <label for="inputSetor">Sobrenome *</label>
-            <input type="text" class="form-control" id="inputSetor">
+            <label for="inputSetor">Setor *</label>
+            <input type="text" class="form-control" name="inputSetor" id="inputSetor" required="">
           </div>
           <button type="submit" class="btn btn-success">Cadastrar</button>
           <a href="index.html" class="btn btn-light">Cancelar</a>
@@ -47,8 +47,15 @@
     </section>
   </div>
 
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <!-- JQuery library -->
+  <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <!-- -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <!-- Twitter Bootstrap Framework -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+  <!-- Local scripts -->
+  <script src="api/inserir-usuario.js"></script>
+  <script src="js/adicionar.js"></script>
 </body>
 </html>

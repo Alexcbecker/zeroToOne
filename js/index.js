@@ -1,49 +1,58 @@
 (function() {
     'use strict';
 
-    let usuarios = buscarUsuarios();
-    eventos();
+    let usuarios = getTodosUsuarios(),
+        tabela = $('#usuariosTbl').DataTable({ select: true });
+    eventos(tabela);
 
-    if (usuarios.length == 0) {
-        $('#tblUsuarios').append(
-            `<tr>
-                <td> - </td>
-                <td> - </td>
-                <td> - </td>
-                <td> - </td>
-                <td> - </td>
-                <td> - </td>
-            /<tr>`
-        );
+    if (!usuarios.length) {
+        tabela.row.add(['-', '-', '-', '-', '-']).draw(false);
     }
     else {
-        for (var index in usuarios) {
-            $('#tblUsuarios').append(
-                `<tr>
-                    <td><input type="checkbox" name="check${usuarios[index].id}"></td>
-                    <td> ${usuarios[index].id} </td>
-                    <td> ${usuarios[index].nome} </td>
-                    <td> ${usuarios[index].sobrenome} </td>
-                    <td> ${usuarios[index].email} </td>
-                    <td> ${usuarios[index].setor} </td>
-                /<tr>`
-            );
+        for (var idx in usuarios) {
+            tabela.row.add([
+                usuarios[idx].id,
+                usuarios[idx].nome,
+                usuarios[idx].sobrenome,
+                usuarios[idx].email,
+                usuarios[idx].setor
+            ]).draw(false);
         }
     }
 
-    function eventos() {
-        $('#btn-consultar').click(consultar);
-
-        function consultar() {
-            let numLinhas = $('#tblUsuarios').find('input[type=checkbox]:checked');
-            switch (numLinhas) {
-                case 0: 
-                    break.
-                case 1:
-                    // ok
-                default:
-                    // error
+    function eventos(tabela) {
+        $('#btn-consultar').click(function() {
+            let linhas = tabela.rows({selected: true}).data().toArray();
+            
+            if (linhas.length != 1) {
+                window.alert('Selecione uma e não mais linhas para consultar!');
             }
-        }
+            else {
+                var l = linhas[0];
+                window.location.href = `consultar.html?id=${l[0]}`;
+            }
+        });
+        $('#btn-alterar').click(function() {
+            let linhas = tabela.rows({selected: true}).data().toArray();
+            
+            if (linhas.length != 1) {
+                window.alert('Selecione uma e não mais linhas para alterar!');
+            }
+            else {
+                var l = linhas[0];
+                window.location.href = `alterar.html?id=${l[0]}`;
+            }
+        });
+        $('#btn-excluir').click(function() {
+            let linhas = tabela.rows({selected: true}).data().toArray();
+            
+            if (linhas.length != 1) {
+                window.alert('Selecione uma e não mais linhas para excluir!');
+            }
+            else {
+                var l = linhas[0];
+                window.location.href = `excluir.html?id=${l[0]}`;
+            }
+        });
     }
 })();
