@@ -1,6 +1,6 @@
-'use strict';
-
 function getUrlParameters() {
+    'use strict';
+    
     var vars = [], hash;
     var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
     for(var i = 0; i < hashes.length; i++)
