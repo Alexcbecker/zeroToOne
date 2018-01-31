@@ -12,7 +12,7 @@
     <div class="row">
       <div class="col-lg-12">
         <a href="adicionar.html" class="btn btn-primary">Adicionar (C)</a>
-        <a href="consultar.html" class="btn btn-secondary">Consultar (R)</a>
+        <button type="button" id="btn-consultar" class="btn btn-secondary">Consultar (R)</button>
         <a href="alterar.html" class="btn btn-secondary">Alterar (U)</a>
         <a href="excluir.html" class="btn btn-secondary">Excluir (D)</a>
       </div>
@@ -28,6 +28,7 @@
       <table class="table table-striped">
         <thead>
           <tr>
+            <th>Sel.</th>
             <th scope="col">#</th>
             <th scope="col">Nome</th>
             <th scope="col">Sobrenome</th>
@@ -35,13 +36,15 @@
             <th scope="col">Setor</th>
           </tr>
         </thead>
-        <tbody></tbody>
+        <tbody id="tblUsuarios"></tbody>
       </table>
     </section>
   </div>
 
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="api/ler-usuarios.js"></script>
+  <script src="js/index.js"></script>
 </body>
 </html>

@@ -1,0 +1,12 @@
+[
+    { "id": 0, "nome": "Ricardo", "sobrenome": "Campos", "email": "ricardompcampos@gmail.com", "setor": "TI" },
+    { "id": 1, "nome": "Bruno", "sobrenome": "Silva", "email": "bruno.silva@gmail.com", "setor": "Infra" },
+    { "id": 2, "nome": "Thiago", "sobrenome": "Jonas", "email": "thiago.jonas@gmail.com", "setor": "Infra" },
+    { "id": 3, "nome": "Marcos", "sobrenome": "Salvador", "email": "marcos.salvador@gmail.com", "setor": "TI" },
+    { "id": 4, "nome": "João", "sobrenome": "Corrêa", "email": "joao.correa@gmail.com", "setor": "Marketing" },
+    { "id": 5, "nome": "Antônio", "sobrenome": "Alves", "email": "antonio.alves@gmail.com", "setor": "TI" },
+    { "id": 6, "nome": "Rodrigo", "sobrenome": "Ferreira", "email": "rodrigo.ferreira@gmail.com", "setor": "Marketing" },
+    { "id": 7, "nome": "Juarez", "sobrenome": "May", "email": "juarez.may@gmail.com", "setor": "TI" },
+    { "id": 8, "nome": "Marcelo", "sobrenome": "Rodrigues", "email": "marcelo.rodrigues@gmail.com", "setor": "TI" },
+    { "id": 9, "nome": "Pedro", "sobrenome": "Costa", "email": "pedro.costa@gmail.com", "setor": "Marketing" }
+]
