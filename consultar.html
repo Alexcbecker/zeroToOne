@@ -5,11 +5,13 @@
   <meta charset="utf-8">
   <title>Zero To One Angular Project</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!-- Nosso CSS -->
+  <link rel="stylesheet" type="text/css" href="css/app.css"/>
 </head>
 <body>
   <div class="container">
 
-    <div class="row">
+    <div class="row top-fix">
       <div class="col-lg-12">
         <a href="index.html" class="btn btn-primary">Voltar</a>
       </div>
@@ -21,23 +23,27 @@
           Consultar usuário
         </legend>
       </header>
-      
+
       <fieldset>
         <form>
           <div class="form-group">
-            <label for="inputNome">Nome *</label>
+            <label for="inputId">Id</label>
+            <input type="text" class="form-control" id="inputId" readonly="">
+          </div>
+          <div class="form-group">
+            <label for="inputNome">Nome</label>
             <input type="text" class="form-control" id="inputNome" readonly="">
           </div>
           <div class="form-group">
-            <label for="inputSobrenome">Sobrenome *</label>
+            <label for="inputSobrenome">Sobrenome</label>
             <input type="text" class="form-control" id="inputSobrenome" readonly="">
           </div>
           <div class="form-group">
-            <label for="inputEmail">E-mail *</label>
+            <label for="inputEmail">E-mail</label>
             <input type="mail" class="form-control" id="inputEmail" readonly="">
           </div>
           <div class="form-group">
-            <label for="inputSetor">Sobrenome *</label>
+            <label for="inputSetor">Setor</label>
             <input type="text" class="form-control" id="inputSetor" readonly="">
           </div>
         </form>
