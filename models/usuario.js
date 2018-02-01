@@ -1,13 +1,13 @@
 class Usuario {
-    constructor() {
-        this.id = 0;
-        this.nome = '';
-        this.sobrenome = '';
-        this.email = '';
-        this.setor = '';
+    constructor(values = {}) {
+        this.id = values.id || 0;
+        this.nome = values.nome || '';
+        this.sobrenome = values.sobrenome || '';
+        this.email = values.email || '';
+        this.setor = values.setor || '';
     }
 
     toString() {
-        return `Usuario - Id=${this.id} Nome=${this.nome}`;
+        return `Usuario: Id=${this.id} Nome=${this.nome}`;
     }
 }

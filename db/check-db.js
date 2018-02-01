@@ -1,4 +1,4 @@
-function checkLocalStorage() {
+function checkDb() {
     'use strict';
 
     if (typeof window.localStorage === 'undefined') {

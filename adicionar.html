@@ -7,7 +7,7 @@
   <!-- Nosso CSS -->
   <link rel="stylesheet" type="text/css" href="css/app.css"/>
 </head>
-<body ng-controller="AdicionarController as adicionarVm">
+<body ng-controller="AdicionarController as addVm">
   <div class="container">
 
     <div class="row top-fix">
@@ -24,22 +24,22 @@
       </header>
 
       <fieldset>
-        <form onsubmit="return addUsuario(this, event);">
+        <form name="formUsuario" ng-submit="addVm.addUsuario()" novalidate>
           <div class="form-group">
             <label for="inputNome">Nome *</label>
-            <input type="text" class="form-control" ng-model="adicionarVm.nome" name="inputNome" id="inputNome" required="">
+            <input type="text" class="form-control" maxlength="20" minlength="3" name="inputNome" id="inputNome" ng-model="addVm.usuario.nome" required>
           </div>
           <div class="form-group">
             <label for="inputSobrenome">Sobrenome *</label>
-            <input type="text" class="form-control" name="inputSobrenome" id="inputSobrenome" required="">
+            <input type="text" class="form-control" maxlength="20" minlength="3" name="inputSobrenome" id="inputSobrenome" ng-model="addVm.usuario.sobrenome" required="">
           </div>
           <div class="form-group">
             <label for="inputEmail">E-mail *</label>
-            <input type="mail" class="form-control" name="inputEmail" id="inputEmail" required="">
+            <input type="mail" class="form-control" name="inputEmail" id="inputEmail" ng-model="addVm.usuario.email" required="">
           </div>
           <div class="form-group">
             <label for="inputSetor">Setor *</label>
-            <input type="text" class="form-control" name="inputSetor" id="inputSetor" required="">
+            <input type="text" class="form-control" name="inputSetor" id="inputSetor" maxlength="20" minlength="3" ng-model="addVm.usuario.setor" required="">
           </div>
           <button type="submit" class="btn btn-success">Cadastrar</button>
           <a href="index.html" class="btn btn-light">Cancelar</a>
@@ -51,12 +51,10 @@
   <!-- Angular JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
 
-  <!-- Local scripts
-  <script src="api/check-local-storage.js"></script>
-  <script src="api/get-todos-usuarios.js"></script>
-  <script src="api/inserir-usuario.js"></script>
-  <script src="js/adicionar.js"></script>
-  -->
+  <!-- Local JS -->
+  <script src="db/check-db.js"></script>
+  <script src="db/insert-user.js"></script>
+  <script src="db/select-all-users.js"></script>
   <script src="models/usuario.js"></script>
   <script src="controllers/adicionar-controller.js"></script>
 </body>

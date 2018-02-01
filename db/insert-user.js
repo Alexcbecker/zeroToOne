@@ -1,12 +1,12 @@
 'use strict';
 
-function inserirUsuario(usuarioObj) {
-    if (!checkLocalStorage()) {
+function insertUser(usuarioObj) {
+    if (!checkDb()) {
         return false;
     }
 
     try {
-        let usuariosArray = getTodosUsuarios();
+        let usuariosArray = selectAllUsers();
 
         if (usuariosArray.length == 0) {
             usuarioObj.id = 1;
@@ -29,10 +29,10 @@ function inserirUsuario(usuarioObj) {
         return true;
     }
     catch (e) {
-        console.error('inserirUsuario exception: ', e);
+        console.error('insertUser exception: ', e);
         if (e.name == 'QUOTA_EXCEEDED_ERR') {
             window.alert('Limite de armazenamento local atingigo!');
-            return false;
         }
+        return false;
     }
 }

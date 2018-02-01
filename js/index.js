@@ -1,7 +1,7 @@
 (function() {
     'use strict';
 
-    let usuarios = getTodosUsuarios(),
+    let usuarios = selectAllUsers(),
         tabela = $('#usuariosTbl').DataTable({ select: true });
     eventos(tabela);
 
