@@ -8,7 +8,20 @@ function inserirUsuario(usuarioObj) {
     try {
         let usuariosArray = getTodosUsuarios();
 
-        usuarioObj.id = usuariosArray.length +1;
+        if (usuariosArray.length == 0) {
+            usuarioObj.id = 1;
+        }
+        else {
+            let maior = 0;
+            for (var idx in usuariosArray) {
+                if (parseInt(usuariosArray[idx].id) > maior) {
+                    maior = parseInt(usuariosArray[idx].id);
+                }
+
+            }
+            usuarioObj.id = maior + 1;
+        }
+
         usuariosArray.push(usuarioObj);
 
         window.localStorage.removeItem('zto_db');
