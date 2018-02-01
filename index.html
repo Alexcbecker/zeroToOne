@@ -5,11 +5,13 @@
   <meta charset="utf-8">
   <title>Zero To One Angular Project</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!-- Nosso CSS -->
+  <link rel="stylesheet" type="text/css" href="css/app.css"/>
 </head>
 <body>
   <div class="container">
 
-    <div class="row">
+    <div class="row top-fix">
       <div class="col-lg-12">
         <a href="adicionar.html" class="btn btn-primary">Adicionar (C)</a>
         <a href="consultar.html" class="btn btn-secondary">Consultar (R)</a>
@@ -24,7 +26,14 @@
           Usuários cadastrados
         </legend>
       </header>
-      
+
+      <div class="row">
+        <div class="col-lg-12">
+          <label for="buscarUsuario">Filtrar usuários</label>
+          <input type="text" id="buscarUsuario" class="form-control">
+        </div>
+      </div>
+
       <table class="table table-striped">
         <thead>
           <tr>
