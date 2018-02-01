@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
-<html>
+<html ng-app="adicionarApp">
 <head>
   <meta charset="utf-8">
   <title>Zero To One Angular Project</title>
@@ -8,7 +7,7 @@
   <!-- Nosso CSS -->
   <link rel="stylesheet" type="text/css" href="css/app.css"/>
 </head>
-<body>
+<body ng-controller="AdicionarController as adicionarVm">
   <div class="container">
 
     <div class="row top-fix">
@@ -28,7 +27,7 @@
         <form onsubmit="return addUsuario(this, event);">
           <div class="form-group">
             <label for="inputNome">Nome *</label>
-            <input type="text" class="form-control" name="inputNome" id="inputNome" required="">
+            <input type="text" class="form-control" ng-model="adicionarVm.nome" name="inputNome" id="inputNome" required="">
           </div>
           <div class="form-group">
             <label for="inputSobrenome">Sobrenome *</label>
@@ -49,17 +48,16 @@
     </section>
   </div>
 
-  <!-- JQuery library -->
-  <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-  <!-- -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <!-- Twitter Bootstrap Framework -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <!-- Angular JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
 
-  <!-- Local scripts -->
+  <!-- Local scripts
   <script src="api/check-local-storage.js"></script>
   <script src="api/get-todos-usuarios.js"></script>
   <script src="api/inserir-usuario.js"></script>
   <script src="js/adicionar.js"></script>
+  -->
+  <script src="models/usuario.js"></script>
+  <script src="controllers/adicionar-controller.js"></script>
 </body>
 </html>
