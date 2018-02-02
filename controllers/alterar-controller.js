@@ -2,18 +2,28 @@
     'use strict';
 
     angular
-        .module('adicionarApp', ['zeroToOne'])
-        .controller('AdicionarController', AdicionarController);
+        .module('alterarApp', ['zeroToOne'])
+        .controller('AlterarController', AlterarController);
 
-    AdicionarController.$inject = ['urlFactory'];
+    AlterarController.$inject = ['urlService', 'urlFactory'];
 
-    function AdicionarController(urlFactory) {
+    function AlterarController(urlService, urlFactory) {
         let vm = this;
 
-        vm.usuario = new Usuario();
-        vm.addUsuario = addUsuario;
+        vm.id = urlService.getUrlParameter('id');
+        vm.alterarUsuario = alterarUsuario;
 
-        function addUsuario() {
+        start();
+
+        function start() {
+            if (isNaN(vm.id)) {
+                window.alert('ID não informado!');
+            } else {
+                vm.usuario = selectUserById(vm.id);
+            }
+        }
+
+        function alterarUsuario() {
             try {
                 if (vm.usuario.nome.length < 3) {
                     throw new Error('Nome deve ter pelo menos 3 letras!');
@@ -42,7 +52,7 @@
                     throw new Error('Setor deve ter no máximo 20 letras!');
                 }
 
-                if (!insertUser(vm.usuario)) {
+                if (!updateUser(vm.usuario)) {
                     return false;
                 }
 

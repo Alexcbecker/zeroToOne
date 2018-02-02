@@ -2,12 +2,12 @@
 <html ng-app="adicionarApp">
 <head>
   <meta charset="utf-8">
-  <title>Zero To One Angular Project</title>
+  <title>Zero To One | Adicionar usuário</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <!-- Nosso CSS -->
   <link rel="stylesheet" type="text/css" href="css/app.css"/>
 </head>
-<body ng-controller="AdicionarController as addVm">
+<body ng-controller="AdicionarController as adicionarVm">
   <div class="container">
 
     <div class="row top-fix">
@@ -24,22 +24,22 @@
       </header>
 
       <fieldset>
-        <form name="formUsuario" ng-submit="addVm.addUsuario()" novalidate>
+        <form name="formUsuario" ng-submit="adicionarVm.addUsuario()" novalidate>
           <div class="form-group">
             <label for="inputNome">Nome *</label>
-            <input type="text" class="form-control" maxlength="20" minlength="3" name="inputNome" id="inputNome" ng-model="addVm.usuario.nome" required>
+            <input type="text" class="form-control" maxlength="20" minlength="3" id="inputNome" ng-model="adicionarVm.usuario.nome" required>
           </div>
           <div class="form-group">
             <label for="inputSobrenome">Sobrenome *</label>
-            <input type="text" class="form-control" maxlength="20" minlength="3" name="inputSobrenome" id="inputSobrenome" ng-model="addVm.usuario.sobrenome" required="">
+            <input type="text" class="form-control" maxlength="20" minlength="3" id="inputSobrenome" ng-model="adicionarVm.usuario.sobrenome" required="">
           </div>
           <div class="form-group">
             <label for="inputEmail">E-mail *</label>
-            <input type="mail" class="form-control" name="inputEmail" id="inputEmail" ng-model="addVm.usuario.email" required="">
+            <input type="mail" class="form-control" id="inputEmail" ng-model="adicionarVm.usuario.email" required="">
           </div>
           <div class="form-group">
             <label for="inputSetor">Setor *</label>
-            <input type="text" class="form-control" name="inputSetor" id="inputSetor" maxlength="20" minlength="3" ng-model="addVm.usuario.setor" required="">
+            <input type="text" class="form-control" id="inputSetor" maxlength="20" minlength="3" ng-model="adicionarVm.usuario.setor" required="">
           </div>
           <button type="submit" class="btn btn-success">Cadastrar</button>
           <a href="index.html" class="btn btn-light">Cancelar</a>
@@ -52,6 +52,8 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
 
   <!-- Local JS -->
+  <script src="app/app.js"></script>
+  <script src="factories/url-factory.js"></script>
   <script src="db/check-db.js"></script>
   <script src="db/insert-user.js"></script>
   <script src="db/select-all-users.js"></script>

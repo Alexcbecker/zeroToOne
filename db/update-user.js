@@ -1,12 +1,12 @@
 'use strict';
 
-function alterarUsuario(usuarioObj) {
-    if (!checkLocalStorage()) {
+function updateUser(usuarioObj) {
+    if (!checkDb()) {
         return false;
     }
 
     try {
-        let usuariosArray = getTodosUsuarios(),
+        let usuariosArray = selectAllUsers(),
             novoArray = [];
 
         for (var idx in usuariosArray) {

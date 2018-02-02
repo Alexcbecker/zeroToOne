@@ -1,14 +1,13 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
-<html>
+<html ng-app="alterarApp">
 <head>
   <meta charset="utf-8">
-  <title>Zero To One Angular Project</title>
+  <title>Zero To One | Alterar usuário</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <!-- Nosso CSS -->
   <link rel="stylesheet" type="text/css" href="css/app.css"/>
 </head>
-<body>
+<body ng-controller="AlterarController as alterarVm">
   <div class="container">
 
     <div class="row top-fix">
@@ -25,26 +24,26 @@
       </header>
 
       <fieldset>
-        <form onsubmit="return alterarUsuarioFn(this, event);">
+        <form ng-submit="alterarVm.alterarUsuario()" novalidate>
           <div class="form-group">
             <label for="inputId">Id</label>
-            <input type="text" class="form-control" id="inputId" readonly="">
+            <input type="text" class="form-control" id="inputId" ng-model="alterarVm.usuario.id" readonly>
           </div>
           <div class="form-group">
             <label for="inputNome">Nome *</label>
-            <input type="text" class="form-control" id="inputNome">
+            <input type="text" class="form-control" id="inputNome" ng-model="alterarVm.usuario.nome">
           </div>
           <div class="form-group">
             <label for="inputSobrenome">Sobrenome *</label>
-            <input type="text" class="form-control" id="inputSobrenome">
+            <input type="text" class="form-control" id="inputSobrenome" ng-model="alterarVm.usuario.sobrenome">
           </div>
           <div class="form-group">
             <label for="inputEmail">E-mail *</label>
-            <input type="mail" class="form-control" id="inputEmail">
+            <input type="mail" class="form-control" id="inputEmail" ng-model="alterarVm.usuario.email">
           </div>
           <div class="form-group">
             <label for="inputSetor">Setor *</label>
-            <input type="text" class="form-control" id="inputSetor">
+            <input type="text" class="form-control" id="inputSetor" ng-model="alterarVm.usuario.setor">
           </div>
           <button type="submit" class="btn btn-success">Alterar</button>
           <a href="index.html" class="btn btn-light">Cancelar</a>
@@ -53,19 +52,17 @@
     </section>
   </div>
 
-  <!-- JQuery library -->
-  <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-  <!-- -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <!-- Twitter Bootstrap Framework -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <!-- Angular JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
 
   <!-- Local scripts -->
-  <script src="api/alterar-usuario.js"></script>
-  <script src="api/check-local-storage.js"></script>
-  <script src="api/get-todos-usuarios.js"></script>
-  <script src="api/get-url-parameters.js"></script>
-  <script src="api/get-usuario-by-id.js"></script>
-  <script src="js/alterar.js"></script>
+  <script src="app/app.js"></script>
+  <script src="factories/url-factory.js"></script>
+  <script src="services/url-service.js"></script>
+  <script src="db/check-db.js"></script>
+  <script src="db/select-all-users.js"></script>
+  <script src="db/select-user-by-id.js"></script>
+  <script src="db/update-user.js"></script>
+  <script src="controllers/alterar-controller.js"></script>
 </body>
 </html>

@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
-<html>
+<html ng-app="indexApp">
 <head>
   <meta charset="utf-8">
-  <title>Zero To One Angular Project</title>
+  <title>Zero To One | Index</title>
   <!-- Twitter Bootstrap 4 -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <!-- Data Tables JQuery Plugin -->
@@ -12,15 +11,15 @@
   <!-- Nosso CSS -->
   <link rel="stylesheet" type="text/css" href="css/app.css"/>
 </head>
-<body>
+<body ng-controller="IndexController as indexVm">
   <div class="container">
 
     <div class="row top-fix">
       <div class="col-lg-12">
-        <a href="adicionar.html" class="btn btn-primary">Adicionar (C)</a>
-        <button type="button" id="btn-consultar" class="btn btn-secondary">Consultar (R)</button>
-        <button type="button" id="btn-alterar" class="btn btn-secondary">Alterar (U)</button>
-        <button type="button" id="btn-excluir" class="btn btn-secondary">Excluir (D)</button>
+        <button type="button" class="btn btn-primary" ng-click="indexVm.adicionar()">Adicionar (C)</a>
+        <button type="button" class="btn btn-secondary" ng-click="indexVm.consultar('R')">Consultar (R)</button>
+        <button type="button" class="btn btn-secondary" ng-click="indexVm.alterar('U')">Alterar (U)</button>
+        <button type="button" class="btn btn-secondary" ng-click="indexVm.excluir('D')">Excluir (D)</button>
       </div>
     </div>
 
@@ -31,9 +30,10 @@
         </legend>
       </header>
 
-      <table class="table table-striped" id="usuariosTbl">
+      <table class="table table-striped">
         <thead>
           <tr>
+            <th scope="col">Sel.</th>
             <th scope="col">#</th>
             <th scope="col">Nome</th>
             <th scope="col">Sobrenome</th>
@@ -41,27 +41,30 @@
             <th scope="col">Setor</th>
           </tr>
         </thead>
-        <tbody></tbody>
+        <tbody ng-repeat="user in indexVm.usuarios">
+          <tr>
+            <td>
+              <input type="checkbox" name="check{{ user.id }}" ng-model="user.selecionado">
+            </td>
+            <td>{{ user.id }}</td>
+            <td>{{ user.nome }}</td>
+            <td>{{ user.sobrenome }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.setor }}</td>
+          </tr>
+        </tbody>
       </table>
     </section>
   </div>
 
-  <!-- JQuery library -->
-  <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-  <!-- -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <!-- Twitter Bootstrap Framework -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  <!-- Data Table JQuery Plugin -->
-  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-  <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-  <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
-  <script type="text/javascript" src="https://cdn.datatables.net/select/1.2.5/js/dataTables.select.min.js"></script>
+  <!-- Angular JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
 
   <!-- Local scripts -->
+  <script src="app/app.js"></script>
+  <script src="factories/url-factory.js"></script>
   <script src="db/check-db.js"></script>
   <script src="db/select-all-users.js"></script>
-  <script src="api/get-todos-usuarios.js"></script>
-  <script src="js/index.js"></script>
+  <script src="controllers/index-controller.js"></script>
 </body>
 </html>

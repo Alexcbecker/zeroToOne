@@ -1,9 +1,9 @@
-function getUsuarioById(id) {
+function selectUserById(id) {
     if (!id) {
         return {};
     }
 
-    if (!checkLocalStorage()) {
+    if (!checkDb()) {
         return false;
     }
 
