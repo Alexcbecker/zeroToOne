@@ -16,7 +16,9 @@
 
         function addUsuario(isValid) {
             if (isValid) {
-                window.alert('our form is amazing');
+                if (insertUser(vm.usuario)) {
+                    window.location = urlFactory.getUrl('main');
+                }
             }
         }
     }
