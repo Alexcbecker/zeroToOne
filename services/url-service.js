@@ -20,6 +20,9 @@
                     return vars[param];
                 }
                 return undefined;
+            },
+            voltarPagPrincipal: function() {
+                window.location = "index.html";
             }
         }
     }

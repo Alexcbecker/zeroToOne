@@ -8,6 +8,6 @@ class Usuario {
     }
 
     toString() {
-        return `Usuario: Id=${this.id} Nome=${this.nome}`;
+        return `Usuario: Id=${this.id} Nome=${this.nome} Sobrenome=${this.sobrenome} Email=${this.email} Setor=${this.setor}`;
     }
 }

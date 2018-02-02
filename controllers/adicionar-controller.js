@@ -5,13 +5,14 @@
         .module('adicionarApp', ['zeroToOne'])
         .controller('AdicionarController', AdicionarController);
 
-    AdicionarController.$inject = ['urlFactory'];
+    AdicionarController.$inject = ['urlService', 'urlFactory'];
 
-    function AdicionarController(urlFactory) {
+    function AdicionarController(urlService, urlFactory) {
         let vm = this;
 
         vm.usuario = new Usuario();
         vm.addUsuario = addUsuario;
+        vm.voltar = urlService.voltarPagPrincipal;
 
         function addUsuario() {
             try {
@@ -46,7 +47,7 @@
                     return false;
                 }
 
-                window.location = urlFactory.getUrl('');
+                window.location = urlFactory.getUrl('main');
             }
             catch (e) {
                 window.alert(e.message);

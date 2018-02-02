@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="consultarApp">
 <head>
   <meta charset="utf-8">
   <title>Zero To One | Consultar usuário</title>
@@ -7,12 +7,12 @@
   <!-- Nosso CSS -->
   <link rel="stylesheet" type="text/css" href="css/app.css"/>
 </head>
-<body>
+<body ng-controller="ConsultarController as consultarVm">
   <div class="container">
 
     <div class="row top-fix">
       <div class="col-lg-12">
-        <a href="index.html" class="btn btn-primary">Voltar</a>
+        <button type="button" ng-click="consultarVm.voltar()" class="btn btn-primary">Voltar</button>
       </div>
     </div>
 
@@ -27,40 +27,39 @@
         <form>
           <div class="form-group">
             <label for="inputId">Id</label>
-            <input type="text" class="form-control" id="inputId" readonly="">
+            <input type="text" class="form-control" id="inputId" readonly ng-model="consultarVm.usuario.id">
           </div>
           <div class="form-group">
-            <label for="inputNome">Nome *</label>
-            <input type="text" class="form-control" id="inputNome" readonly="">
+            <label for="inputNome">Nome</label>
+            <input type="text" class="form-control" id="inputNome" readonly ng-model="consultarVm.usuario.nome">
           </div>
           <div class="form-group">
-            <label for="inputSobrenome">Sobrenome *</label>
-            <input type="text" class="form-control" id="inputSobrenome" readonly="">
+            <label for="inputSobrenome">Sobrenome</label>
+            <input type="text" class="form-control" id="inputSobrenome" readonly ng-model="consultarVm.usuario.sobrenome">
           </div>
           <div class="form-group">
-            <label for="inputEmail">E-mail *</label>
-            <input type="mail" class="form-control" id="inputEmail" readonly="">
+            <label for="inputEmail">E-mail</label>
+            <input type="mail" class="form-control" id="inputEmail" readonly ng-model="consultarVm.usuario.email">
           </div>
           <div class="form-group">
-            <label for="inputSetor">Setor *</label>
-            <input type="text" class="form-control" id="inputSetor" readonly="">
+            <label for="inputSetor">Setor</label>
+            <input type="text" class="form-control" id="inputSetor" readonly ng-model="consultarVm.usuario.setor">
           </div>
         </form>
       </fieldset>
     </section>
   </div>
 
-  <!-- JQuery library -->
-  <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-  <!-- -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <!-- Twitter Bootstrap Framework -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <!-- Angular JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
 
   <!-- Local scripts -->
-  <script src="api/check-local-storage.js"></script>
-  <script src="api/get-url-parameters.js"></script>
-  <script src="api/get-usuario-by-id.js"></script>
-  <script src="js/consultar.js"></script>
+  <script src="app/app.js"></script>
+  <script src="factories/url-factory.js"></script>
+  <script src="services/url-service.js"></script>
+  <script src="db/check-db.js"></script>
+  <script src="db/select-all-users.js"></script>
+  <script src="db/select-user-by-id.js"></script>
+  <script src="controllers/consultar-controller.js"></script>
 </body>
 </html>

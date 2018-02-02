@@ -12,6 +12,7 @@
 
         vm.id = urlService.getUrlParameter('id');
         vm.alterarUsuario = alterarUsuario;
+        vm.voltar = urlService.voltarPagPrincipal;
 
         start();
 
@@ -56,7 +57,7 @@
                     return false;
                 }
 
-                window.location = urlFactory.getUrl('');
+                window.location = urlFactory.getUrl('main');
             }
             catch (e) {
                 window.alert(e.message);

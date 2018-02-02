@@ -1,20 +1,20 @@
 'use strict';
 
-function excluirUsuarioById(id) {
-    if (!id) {
+function deleteUser(userObj) {
+    if (!userObj.id) {
         return false;
     }
 
-    if (!checkLocalStorage()) {
+    if (!checkDb()) {
         return false;
     }
 
     try {
-        let usuariosArray = getTodosUsuarios(),
+        let usuariosArray = selectAllUsers(),
             novoArray = [];
 
         for (var idx in usuariosArray) {
-            if (parseInt(usuariosArray[idx].id) !== parseInt(id)) {
+            if (parseInt(usuariosArray[idx].id) !== parseInt(userObj.id)) {
                 novoArray.push(usuariosArray[idx]);
             }
         }

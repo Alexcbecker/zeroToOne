@@ -12,7 +12,7 @@
 
     <div class="row top-fix">
       <div class="col-lg-12">
-        <a href="index.html" class="btn btn-primary">Voltar</a>
+        <button type="button" ng-click="adicionarVm.voltar()" class="btn btn-primary">Voltar</button>
       </div>
     </div>
 
@@ -31,18 +31,18 @@
           </div>
           <div class="form-group">
             <label for="inputSobrenome">Sobrenome *</label>
-            <input type="text" class="form-control" maxlength="20" minlength="3" id="inputSobrenome" ng-model="adicionarVm.usuario.sobrenome" required="">
+            <input type="text" class="form-control" maxlength="20" minlength="3" id="inputSobrenome" ng-model="adicionarVm.usuario.sobrenome" required>
           </div>
           <div class="form-group">
             <label for="inputEmail">E-mail *</label>
-            <input type="mail" class="form-control" id="inputEmail" ng-model="adicionarVm.usuario.email" required="">
+            <input type="mail" class="form-control" id="inputEmail" ng-model="adicionarVm.usuario.email" required>
           </div>
           <div class="form-group">
             <label for="inputSetor">Setor *</label>
-            <input type="text" class="form-control" id="inputSetor" maxlength="20" minlength="3" ng-model="adicionarVm.usuario.setor" required="">
+            <input type="text" class="form-control" id="inputSetor" maxlength="20" minlength="2" ng-model="adicionarVm.usuario.setor" required>
           </div>
           <button type="submit" class="btn btn-success">Cadastrar</button>
-          <a href="index.html" class="btn btn-light">Cancelar</a>
+          <button type="button" class="btn btn-light" ng-click="adicionarVm.voltar()">Cancelar</button>
         </form>
       </fieldset>
     </section>
@@ -54,6 +54,7 @@
   <!-- Local JS -->
   <script src="app/app.js"></script>
   <script src="factories/url-factory.js"></script>
+  <script src="services/url-service.js"></script>
   <script src="db/check-db.js"></script>
   <script src="db/insert-user.js"></script>
   <script src="db/select-all-users.js"></script>
