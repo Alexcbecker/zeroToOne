@@ -3,16 +3,19 @@
 <head>
   <meta charset="utf-8">
   <title>Zero To One | Adicionar usuário</title>
+  
+  <!-- Bootstrap -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
   <!-- Nosso CSS -->
   <link rel="stylesheet" type="text/css" href="css/app.css"/>
 </head>
-<body ng-controller="AdicionarController as adicionarVm">
+<body ng-controller="AdicionarController as addVm">
   <div class="container">
 
     <div class="row top-fix">
       <div class="col-lg-12">
-        <button type="button" ng-click="adicionarVm.voltar()" class="btn btn-primary">Voltar</button>
+        <button type="button" ng-click="addVm.voltar()" class="btn btn-primary">Voltar</button>
       </div>
     </div>
 
@@ -24,25 +27,53 @@
       </header>
 
       <fieldset>
-        <form name="formUsuario" ng-submit="adicionarVm.addUsuario()" novalidate>
-          <div class="form-group">
-            <label for="inputNome">Nome *</label>
-            <input type="text" class="form-control" maxlength="20" minlength="3" id="inputNome" ng-model="adicionarVm.usuario.nome" required>
+        <form name="addVm.fUser" ng-submit="addVm.submit(addVm.fUser.$valid)" novalidate>
+          <div class="form-row">
+            <div class="col-lg-12 mb-3">
+              <label for="iNome">Nome *</label>
+              <input class="form-control" type="text" id="iNome" name="iNome" ng-model="addVm.usuario.nome" required ng-minlength=3 ng-maxlength=15 ng-class="{'is-invalid': addVm.fUser.iNome.$invalid && addVm.fUser.$submitted}">
+              <span class="invalid-feedback" ng-show="addVm.fUser.iNome.$invalid && addVm.fUser.$submitted">
+                <span ng-show="addVm.fUser.iNome.$error.required">Nome não pode ser vazio!</span>
+                <span ng-show="addVm.fUser.iNome.$error.minlength">Nome deve ter pelo menos 3 letras!</span>
+                <span ng-show="addVm.fUser.iNome.$error.maxlength">Nome deve ter no máximo 15 letras!</span>
+              </span>
+            </div>
           </div>
-          <div class="form-group">
-            <label for="inputSobrenome">Sobrenome *</label>
-            <input type="text" class="form-control" maxlength="20" minlength="3" id="inputSobrenome" ng-model="adicionarVm.usuario.sobrenome" required>
+          <div class="form-row">
+            <div class="col-md-12 mb-3">
+              <label for="iSobrenome">Sobrenome *</label>
+              <input class="form-control" type="text" id="iSobrenome" name="iSobrenome" ng-model="addVm.usuario.sobrenome" required ng-minlength=3 ng-maxlength=15 ng-class="{'is-invalid': addVm.fUser.iSobrenome.$invalid && addVm.fUser.$submitted}">
+              <span class="invalid-feedback" ng-show="addVm.fUser.iSobrenome.$invalid && addVm.fUser.$submitted">
+                <span ng-show="addVm.fUser.iSobrenome.$error.required">Sobrenome não pode ser vazio!</span>
+                <span ng-show="addVm.fUser.iSobrenome.$error.minlength">Sobrenome deve ter pelo menos 3 letras!</span>
+                <span ng-show="addVm.fUser.iSobrenome.$error.maxlength">Sobrenome deve ter no máximo 15 letras!</span>
+              </span>
+            </div>
           </div>
-          <div class="form-group">
-            <label for="inputEmail">E-mail *</label>
-            <input type="mail" class="form-control" id="inputEmail" ng-model="adicionarVm.usuario.email" required>
+          <div class="form-row">
+            <div class="col-md-12 mb-3">
+              <label for="iEmail">E-mail *</label>
+              <input type="mail" class="form-control" id="iEmail" name="iEmail" ng-model="addVm.usuario.email" required ng-minlength=5 ng-maxlength=30 ng-class="{'is-invalid': addVm.fUser.iEmail.$invalid && addVm.fUser.$submitted}">
+              <span class="invalid-feedback" ng-show="addVm.fUser.iEmail.$invalid && addVm.fUser.$submitted">
+                <span ng-show="addVm.fUser.iEmail.$error.required">E-mail não pode ser vazio!</span>
+                <span ng-show="addVm.fUser.iEmail.$error.minlength">E-mail deve ter pelo menos 3 letras!</span>
+                <span ng-show="addVm.fUser.iEmail.$error.maxlength">E-mail deve ter no máximo 30 letras!</span>
+              </span>
+            </div>
           </div>
-          <div class="form-group">
-            <label for="inputSetor">Setor *</label>
-            <input type="text" class="form-control" id="inputSetor" maxlength="20" minlength="2" ng-model="adicionarVm.usuario.setor" required>
+          <div class="form-row">
+            <div class="col-md-12 mb-3">
+              <label for="iSetor">Setor *</label>
+              <input type="text" class="form-control" id="iSetor" name="iSetor" ng-model="addVm.usuario.setor" required ng-minlength=2 ng-maxlength=15 ng-class="{'is-invalid': addVm.fUser.iSetor.$invalid && addVm.fUser.$submitted}">
+              <span class="invalid-feedback" ng-show="addVm.fUser.iSetor.$invalid && addVm.fUser.$submitted">
+                <span ng-show="addVm.fUser.iSetor.$error.required">Setor não pode ser vazio!</span>
+                <span ng-show="addVm.fUser.iSetor.$error.minlength">Setor deve ter pelo menos 2 letras!</span>
+                <span ng-show="addVm.fUser.iSetor.$error.maxlength">Setor deve ter no máximo 15 letras!</span>
+              </span>
+            </div>
           </div>
           <button type="submit" class="btn btn-success">Cadastrar</button>
-          <button type="button" class="btn btn-light" ng-click="adicionarVm.voltar()">Cancelar</button>
+          <button type="button" class="btn btn-light" ng-click="addVm.voltar()">Cancelar</button>
         </form>
       </fieldset>
     </section>
